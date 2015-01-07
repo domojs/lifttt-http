@@ -1,0 +1,23 @@
+{
+  "name": "http",
+  "version": "0.0.1",
+  "bugs": {
+    "url": "http://github.com/npenin/ifttt-http/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/npenin/ifttt-http.git"
+  },
+  "author": "Nicolas Penin <nicolas.penin@dragon-angel.fr>",
+  "dependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "barcode",
+    "reader",
+    "ifttt"
+  ],
+  "license": "MIT"
+}
