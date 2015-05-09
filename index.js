@@ -5,7 +5,14 @@ module.exports={name:"http", "trigger":{}, "actions":[{name:"get", fields:[{ nam
 				var url=$('url').parse(fields.url);
 				console.log(fields.url);
 				console.log(url);
-				$('http').request({hostname:url.hostname, path:url.path, port:url.port, headers:{accept:'application/json'}}).on('clienterror', function(ex){ console.log(ex); }).on('error', function(ex){ console.log(ex); }).on('response', function(response){ completed();  }).end();
+				$('http').request({hostname:url.hostname, path:url.path, port:url.port, headers:{accept:'application/json'}})
+				    .on('clienterror', function(ex){ console.log(ex); })
+				    .on('error', function(ex){ console.log(ex); })
+				    .on('response', function(response){ 
+				        if(completed)    
+				            completed();  
+		            })
+			        .end();
 			}
 			catch (ex)
 			{
@@ -28,7 +35,8 @@ module.exports={name:"http", "trigger":{}, "actions":[{name:"get", fields:[{ nam
                             response.pipe(output);
                         response.on('close', function(){
                             console.log('download complete');
-                            completed();
+                            if(completed)
+                                completed();
                         });
                     })
                     .end();
